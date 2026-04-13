@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact Us | Tourism of India</title>
+<link rel="icon" href="https://cdn-icons-png.flaticon.com/512/684/684908.png">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+<style>
+  *{margin:0;padding:0;box-sizing:border-box;font-family:'Segoe UI',sans-serif;}
+  body{background:#fef9f0;color:#2c3e2f;}
+  .navbar{background:#1a472a;padding:1rem 2rem;display:flex;justify-content:center;gap:2rem;flex-wrap:wrap;position:sticky;top:0;z-index:100;}
+  .navbar a{color:#ffebc2;text-decoration:none;font-weight:600;transition:0.3s;font-size:1rem;}
+  .navbar a:hover,.navbar a.active{color:#ffb347;}
+  .header{text-align:center;padding:3rem 2rem;background:linear-gradient(135deg,#2b5e3b,#1a472a);color:white;}
+  .header h1{font-size:2.2rem;margin-bottom:1rem;}
+  .header p{font-size:1.1rem;opacity:0.9;}
+  .booking-summary{max-width:1200px;margin:2rem auto 0;padding:0 2rem;}
+  .booking-summary h3{color:#1a472a;margin-bottom:1rem;font-size:1.3rem;}
+  .booking-summary h3 i{color:#ffb347;}
+  .booking-item{background:white;border-radius:12px;padding:1rem;margin-bottom:1rem;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:0.8rem;box-shadow:0 2px 10px rgba(0,0,0,0.05);transition:0.3s;}
+  .booking-item:hover{transform:translateX(5px);background:#fff3e0;}
+  .booking-info h4{color:#1a472a;margin-bottom:5px;}
+  .booking-info p{color:#666;font-size:0.85rem;margin:3px 0;}
+  .booking-info i{color:#ffb347;margin-right:4px;}
+  .booking-status{background:#d4edda;color:#155724;padding:5px 12px;border-radius:20px;font-size:0.8rem;font-weight:bold;}
+  .no-bookings{text-align:center;padding:2rem;color:#666;background:white;border-radius:12px;}
+  .no-bookings i{font-size:2rem;color:#ffb347;margin-bottom:0.5rem;}
+  .contact-container{max-width:1200px;margin:3rem auto;padding:0 2rem;display:grid;grid-template-columns:1fr 1fr;gap:3rem;}
+  .contact-info{background:white;border-radius:20px;padding:2rem;box-shadow:0 5px 20px rgba(0,0,0,0.05);}
+  .contact-info h2{color:#1a472a;margin-bottom:1.5rem;border-left:4px solid #ffb347;padding-left:1rem;}
+  .info-item{display:flex;align-items:flex-start;gap:1rem;margin-bottom:1.5rem;padding:0.8rem;border-radius:12px;transition:0.3s;}
+  .info-item:hover{background:#f8f4ea;transform:translateX(5px);}
+  .info-icon{width:45px;height:45px;background:#ffb347;border-radius:50%;display:flex;align-items:center;justify-content:center;color:white;font-size:1.2rem;flex-shrink:0;}
+  .info-item h3{font-size:1rem;margin-bottom:0.3rem;color:#1a472a;}
+  .info-item p,.info-item a{color:#666;font-size:0.9rem;text-decoration:none;}
+  .info-item a:hover{color:#ffb347;}
+  .business-hours{margin-top:1.5rem;padding-top:1.5rem;border-top:1px solid #eee;}
+  .business-hours h3{color:#1a472a;margin-bottom:0.8rem;}
+  .business-hours p{color:#666;margin:0.5rem 0;display:flex;align-items:center;gap:10px;font-size:0.9rem;}
+  .business-hours i{color:#ffb347;width:20px;}
+  .contact-form{background:white;border-radius:20px;padding:2rem;box-shadow:0 5px 20px rgba(0,0,0,0.05);}
+  .contact-form h2{color:#1a472a;margin-bottom:1.5rem;border-left:4px solid #ffb347;padding-left:1rem;}
+  .form-group{margin-bottom:1rem;}
+  .form-group input,.form-group textarea{width:100%;padding:12px 15px;border:1px solid #ddd;border-radius:12px;font-family:inherit;font-size:0.95rem;transition:0.3s;outline:none;}
+  .form-group input:focus,.form-group textarea:focus{border-color:#ffb347;box-shadow:0 0 0 3px rgba(255,179,71,0.1);}
+  .form-group textarea{resize:vertical;min-height:100px;}
+  .btn-submit{background:#ffb347;color:#1a472a;padding:12px 30px;border:none;border-radius:50px;font-weight:bold;cursor:pointer;transition:0.3s;width:100%;font-size:1rem;}
+  .btn-submit:hover{background:#ff8c00;color:white;transform:translateY(-2px);}
+  .map-container{max-width:1200px;margin:0 auto 3rem;padding:0 2rem;}
+  .map-container iframe{width:100%;border-radius:20px;box-shadow:0 5px 20px rgba(0,0,0,0.1);}
+  footer{text-align:center;background:#1a2a1f;color:#c9d1b7;padding:1.5rem;margin-top:2rem;}
+  @media(max-width:768px){.contact-container{grid-template-columns:1fr;}.booking-item{flex-direction:column;}}
+</style>
+</head>
+<body>
+
+<nav class="navbar">
+  <a href="index.html">Home</a>
+  <a href="places.html">Places</a>
+  <a href="package.html">Packages</a>
+  <a href="about.html">About</a>
+  <a href="contact.html" class="active">Contact</a>
+  <a href="mybookings.html">My Bookings</a>
+  <a href="register.html" id="authNavLink">Login / Register</a>
+</nav>
+
+<div class="header">
+  <h1>📞 Contact Us</h1>
+  <p>We'd love to hear from you! Get in touch with our travel experts.</p>
+</div>
+
+<!-- RECENT BOOKINGS (auto-loads from localStorage) -->
+<div class="booking-summary">
+  <h3><i class="fas fa-ticket-alt"></i> Your Recent Bookings</h3>
+  <div id="recentBookingsList"></div>
+</div>
+
+<div class="contact-container">
+  <div class="contact-info">
+    <h2><i class="fas fa-address-card"></i> Get in Touch</h2>
+    <div class="info-item">
+      <div class="info-icon"><i class="fas fa-map-marker-alt"></i></div>
+      <div><h3>Office Address</h3><p>SBI Colony, Shegaon,<br>Buldana District, Maharashtra – 444203<br>India</p></div>
+    </div>
+    <div class="info-item">
+      <div class="info-icon"><i class="fas fa-phone"></i></div>
+      <div><h3>Phone Numbers</h3><p><a href="tel:+917020219751">📞 +91 70202 19751</a></p><p><a href="tel:+919422466975">📞 +91 94224 66975</a></p></div>
+    </div>
+    <div class="info-item">
+      <div class="info-icon"><i class="fas fa-envelope"></i></div>
+      <div><h3>Email Addresses</h3><p><a href="mailto:tourismofindiaofficial@gmail.com">✉️ tourismofindiaofficial@gmail.com</a></p></div>
+    </div>
+    <div class="business-hours">
+      <h3><i class="fas fa-clock"></i> Business Hours</h3>
+      <p><i class="fas fa-sun"></i> Monday – Friday: 9:00 AM – 7:00 PM</p>
+      <p><i class="fas fa-cloud-sun"></i> Saturday: 10:00 AM – 5:00 PM</p>
+      <p><i class="fas fa-moon"></i> Sunday: Closed (Emergency support available)</p>
+    </div>
+  </div>
+
+  <div class="contact-form">
+    <h2><i class="fas fa-paper-plane"></i> Send us a Message</h2>
+    <form id="contactForm">
+      <div class="form-group"><input type="text" id="contactName" placeholder="Your Full Name" required></div>
+      <div class="form-group"><input type="email" id="contactEmail" placeholder="Your Email Address" required></div>
+      <div class="form-group"><input type="tel" id="contactPhone" placeholder="Your Phone Number (Optional)"></div>
+      <div class="form-group"><input type="text" id="contactSubject" placeholder="Subject"></div>
+      <div class="form-group"><textarea id="contactMessage" placeholder="Your Message..." required></textarea></div>
+      <button type="submit" class="btn-submit"><i class="fas fa-paper-plane"></i> Send Message</button>
+      <div id="contactMsg" style="margin-top:1rem;text-align:center;"></div>
+    </form>
+  </div>
+</div>
+
+<div class="map-container">
+  <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d119283.55254524678!2d76.70024144335938!3d20.792184999999998!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bd790efb8c45ebf%3A0x8f1d8c9b2e5a4f3!2sShegaon%2C%20Maharashtra!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin" height="350" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+</div>
+
+<footer>
+  <p>© 2025 Tourism of India | Your Trusted Travel Partner ✨</p>
+  <p style="font-size:0.8rem;margin-top:0.5rem;">📍 SBI Colony, Shegaon, Buldana, Maharashtra</p>
+</footer>
+
+<script>
+  // Load logged-in user's recent bookings from localStorage
+  function loadUserBookings() {
+    const bookingsList = document.getElementById('recentBookingsList');
+    const user = JSON.parse(localStorage.getItem('current_user') || 'null');
+    if (!user) {
+      bookingsList.innerHTML = `<div class="no-bookings"><i class="fas fa-lock"></i><p>Please <a href="register.html" style="color:#ffb347;">login</a> to view your bookings</p></div>`;
+      return;
+    }
+    const all = JSON.parse(localStorage.getItem('tourism_all_bookings') || '[]');
+    const mine = all.filter(b => b.userEmail.toLowerCase() === user.email.toLowerCase()).sort((a,b)=>new Date(b.bookingDate)-new Date(a.bookingDate)).slice(0,5);
+    if (mine.length === 0) {
+      bookingsList.innerHTML = `<div class="no-bookings"><i class="fas fa-calendar-alt"></i><p>You haven't made any bookings yet. <a href="places.html" style="color:#ffb347;">Explore Places →</a></p></div>`;
+      return;
+    }
+    bookingsList.innerHTML = mine.map(b => {
+      const isPlace = b.type==='place';
+      return `<div class="booking-item">
+        <div class="booking-info">
+          <h4><i class="fas ${isPlace?'fa-map-marker-alt':'fa-suitcase'}"></i> ${b.placeName||b.packageName}</h4>
+          <p><i class="fas fa-calendar"></i> Travel Date: ${b.travelDate}</p>
+          <p><i class="fas fa-users"></i> ${b.seats||b.travelers} ${isPlace?'Seat(s)':'Traveler(s)'}</p>
+          <p><i class="fas fa-rupee-sign"></i> ₹${(b.totalAmount||0).toLocaleString()}</p>
+        </div>
+        <div class="booking-status"><i class="fas fa-check-circle"></i> Confirmed</div>
+      </div>`;
+    }).join('');
+  }
+
+  // Contact form - simple frontend validation + success message
+  document.getElementById('contactForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    const name = document.getElementById('contactName').value.trim();
+    const email = document.getElementById('contactEmail').value.trim();
+    const message = document.getElementById('contactMessage').value.trim();
+    const msg = document.getElementById('contactMsg');
+    if (!name||!email||!message) { msg.innerHTML='<div style="background:#f8d7da;padding:10px;border-radius:10px;color:#721c24;">❌ Please fill all required fields!</div>'; return; }
+    if (!email.includes('@')||!email.includes('.')) { msg.innerHTML='<div style="background:#f8d7da;padding:10px;border-radius:10px;color:#721c24;">❌ Enter a valid email address!</div>'; return; }
+    msg.innerHTML = '<div style="background:#d4edda;padding:10px;border-radius:10px;color:#155724;">✅ Message sent! We\'ll get back to you within 24 hours.</div>';
+    this.reset();
+    setTimeout(() => msg.innerHTML='', 5000);
+  });
+
+  // Update auth link
+  const user = JSON.parse(localStorage.getItem('current_user') || 'null');
+  if (user) {
+    const link = document.getElementById('authNavLink');
+    link.textContent = 'Logout';
+    link.href = '#';
+    link.onclick = async (e) => {
+      e.preventDefault();
+      localStorage.removeItem('current_user');
+      window.location.href = 'index.html';
+    };
+  }
+
+  loadUserBookings();
+</script>
+<script type="module" src="global-auth.js"></script>
+</body>
+</html>

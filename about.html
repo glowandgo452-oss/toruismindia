@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About Us | Tourism of India</title>
+<link rel="icon" href="https://cdn-icons-png.flaticon.com/512/684/684908.png">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+<style>
+  *{margin:0;padding:0;box-sizing:border-box;font-family:'Segoe UI',sans-serif;}
+  body{background:#fef9f0;color:#2c3e2f;line-height:1.6;}
+  .navbar{background:#1a472a;padding:1rem 2rem;position:sticky;top:0;z-index:100;box-shadow:0 2px 10px rgba(0,0,0,0.1);}
+  .nav-container{max-width:1200px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:0.5rem;}
+  .logo{font-size:1.5rem;font-weight:bold;color:#ffd966;}
+  .logo i{margin-right:8px;color:#ffb347;}
+  .nav-links{display:flex;gap:1.5rem;list-style:none;align-items:center;flex-wrap:wrap;}
+  .nav-links a{text-decoration:none;color:#ffebc2;font-weight:600;transition:0.3s;}
+  .nav-links a:hover,.nav-links a.active{color:#ffb347;}
+  .nav-user{color:#ffb347;font-size:0.85rem;font-weight:600;}
+  .page-header{text-align:center;padding:4rem 2rem;background:linear-gradient(135deg,#2b5e3b,#1a472a);color:white;}
+  .page-header h1{font-size:2.8rem;margin-bottom:1rem;}
+  .page-header p{font-size:1.3rem;opacity:0.95;}
+  .content-section{max-width:1200px;margin:4rem auto;padding:0 2rem;}
+  .about-grid{display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:center;}
+  .about-img img{width:100%;border-radius:20px;box-shadow:0 10px 30px rgba(0,0,0,0.1);}
+  .about-text h2{font-size:2rem;color:#1a472a;margin-bottom:1rem;}
+  .about-text p{font-size:1.1rem;color:#4a5b4a;margin-bottom:1.5rem;line-height:1.8;}
+  .feature-cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:1.5rem;margin-top:2rem;}
+  .feature-card{text-align:center;padding:1.5rem;background:white;border-radius:15px;box-shadow:0 5px 15px rgba(0,0,0,0.08);transition:transform 0.3s;}
+  .feature-card:hover{transform:translateY(-5px);}
+  .feature-card i{font-size:2rem;color:#ffb347;margin-bottom:0.5rem;}
+  .feature-card h3{font-size:1rem;color:#1a472a;}
+  .mission-vision{background:linear-gradient(135deg,#f8f4ea,#fff);padding:4rem 2rem;margin:2rem 0;}
+  .mission-vision-container{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:2rem;}
+  .mission-card,.vision-card{text-align:center;padding:2.5rem;background:white;border-radius:20px;box-shadow:0 5px 20px rgba(0,0,0,0.05);transition:transform 0.3s;}
+  .mission-card:hover,.vision-card:hover{transform:translateY(-5px);}
+  .mission-card i,.vision-card i{font-size:3rem;color:#ffb347;margin-bottom:1rem;}
+  .mission-card h3,.vision-card h3{font-size:1.5rem;color:#1a472a;margin-bottom:1rem;}
+  .mission-card p,.vision-card p{color:#4a5b4a;line-height:1.6;}
+  .stats-section{background:#1a472a;padding:4rem 2rem;}
+  .stats-container{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:2rem;text-align:center;}
+  .stat-item i{font-size:2.5rem;color:#ffb347;margin-bottom:1rem;}
+  .stat-number{font-size:2rem;font-weight:bold;color:white;}
+  .stat-label{font-size:1rem;color:#ffebc2;margin-top:0.5rem;}
+  .values-section{max-width:1200px;margin:4rem auto;padding:0 2rem;}
+  .values-section h2{text-align:center;font-size:2rem;color:#1a472a;margin-bottom:2rem;}
+  .values-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:2rem;}
+  .value-card{text-align:center;padding:2rem;background:white;border-radius:20px;box-shadow:0 5px 15px rgba(0,0,0,0.05);transition:transform 0.3s;}
+  .value-card:hover{transform:translateY(-5px);}
+  .value-card i{font-size:2.5rem;color:#ffb347;margin-bottom:1rem;}
+  .value-card h3{font-size:1.3rem;color:#1a472a;margin-bottom:0.5rem;}
+  .value-card p{color:#4a5b4a;}
+  .testimonials{background:#f8f4ea;padding:4rem 2rem;}
+  .testimonials-container{max-width:1200px;margin:0 auto;}
+  .testimonials h2{text-align:center;font-size:2rem;color:#1a472a;margin-bottom:2rem;}
+  .testimonial-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:2rem;}
+  .testimonial-card{background:white;padding:2rem;border-radius:20px;text-align:center;box-shadow:0 5px 15px rgba(0,0,0,0.05);transition:transform 0.3s;}
+  .testimonial-card:hover{transform:translateY(-5px);}
+  .testimonial-card i{font-size:2rem;color:#ffb347;margin-bottom:1rem;}
+  .testimonial-card p{font-style:italic;margin-bottom:1rem;color:#2c3e2f;line-height:1.6;}
+  .testimonial-card h4{color:#1a472a;margin-top:0.5rem;}
+  .stars{margin-top:0.5rem;color:#ffc107;}
+  .newsletter{background:linear-gradient(135deg,#ffb347,#ff8c00);padding:4rem 2rem;text-align:center;}
+  .newsletter h3{font-size:1.8rem;margin-bottom:1rem;color:white;}
+  .newsletter p{margin-bottom:1.5rem;color:white;font-size:1.1rem;}
+  .newsletter-form{display:flex;justify-content:center;gap:1rem;flex-wrap:wrap;}
+  .newsletter-form input{padding:12px 20px;border-radius:30px;border:none;width:300px;font-size:1rem;outline:none;}
+  .newsletter-form button{padding:12px 30px;border-radius:30px;border:none;background:#1a472a;color:white;font-weight:bold;cursor:pointer;transition:0.3s;}
+  .newsletter-form button:hover{background:#0e2e1c;}
+  footer{background:#1a2a1f;text-align:center;padding:1.5rem;color:#c9d1b7;}
+  @media(max-width:768px){.about-grid,.mission-vision-container{grid-template-columns:1fr;}.nav-links{flex-direction:column;gap:0.8rem;}.page-header h1{font-size:2rem;}.page-header p{font-size:1rem;}}
+</style>
+</head>
+<body>
+
+<nav class="navbar">
+  <div class="nav-container">
+    <div class="logo"><i class="fas fa-map-marked-alt"></i> Tourism of India</div>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html" class="active">About</a></li>
+      <li><a href="places.html">Places</a></li>
+      <li><a href="package.html">Packages</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><a href="mybookings.html">My Bookings</a></li>
+      <li><span class="nav-user" id="userNavName"></span></li>
+      <li><a href="register.html" id="authNavLink">Login / Register</a></li>
+    </ul>
+  </div>
+</nav>
+
+<header class="page-header">
+  <h1>About Tourism of India</h1>
+  <p>Your Gateway to Incredible India's Beauty, Culture &amp; Diversity</p>
+</header>
+
+<section class="content-section">
+  <div class="about-grid">
+    <div class="about-img">
+      <img src="https://images.pexels.com/photos/358457/pexels-photo-358457.jpeg" alt="Beautiful India">
+    </div>
+    <div class="about-text">
+      <h2>Welcome to Tourism of India</h2>
+      <p>Tourism of India is your trusted travel partner, dedicated to showcasing the incredible diversity and rich cultural heritage of India. From the snow-capped Himalayas to the sun-kissed beaches of Goa, from ancient temples to vibrant cities, we curate unforgettable travel experiences.</p>
+      <p>With over 10 years of experience in the travel industry, we've helped thousands of travelers discover the magic of India. Our team of passionate travel experts ensures every journey is seamless, safe, and memorable.</p>
+      <div class="feature-cards">
+        <div class="feature-card"><i class="fas fa-globe"></i><h3>All India Tours</h3></div>
+        <div class="feature-card"><i class="fas fa-wallet"></i><h3>Affordable Packages</h3></div>
+        <div class="feature-card"><i class="fas fa-headset"></i><h3>24/7 Support</h3></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="mission-vision">
+  <div class="mission-vision-container">
+    <div class="mission-card"><i class="fas fa-bullseye"></i><h3>Our Mission</h3><p>To provide exceptional travel experiences that showcase India's rich heritage, promote sustainable tourism, and create lifelong memories for every traveler.</p></div>
+    <div class="vision-card"><i class="fas fa-eye"></i><h3>Our Vision</h3><p>To become India's most trusted travel partner, known for excellence, authenticity, and unparalleled customer satisfaction.</p></div>
+  </div>
+</section>
+
+<section class="stats-section">
+  <div class="stats-container">
+    <div class="stat-item"><i class="fas fa-map-marked-alt"></i><div class="stat-number">250+</div><div class="stat-label">Destinations Covered</div></div>
+    <div class="stat-item"><i class="fas fa-smile"></i><div class="stat-number">50K+</div><div class="stat-label">Happy Travelers</div></div>
+    <div class="stat-item"><i class="fas fa-calendar-check"></i><div class="stat-number">10+</div><div class="stat-label">Years of Excellence</div></div>
+    <div class="stat-item"><i class="fas fa-star"></i><div class="stat-number">4.8</div><div class="stat-label">Customer Rating</div></div>
+  </div>
+</section>
+
+<section class="values-section">
+  <h2><i class="fas fa-heart"></i> Our Core Values</h2>
+  <div class="values-grid">
+    <div class="value-card"><i class="fas fa-handshake"></i><h3>Trust &amp; Integrity</h3><p>We believe in honest, transparent service that builds lasting relationships with our customers.</p></div>
+    <div class="value-card"><i class="fas fa-leaf"></i><h3>Sustainable Tourism</h3><p>Committed to responsible travel that preserves India's natural and cultural heritage.</p></div>
+    <div class="value-card"><i class="fas fa-users"></i><h3>Customer First</h3><p>Your satisfaction is our priority. We go the extra mile to ensure memorable experiences.</p></div>
+    <div class="value-card"><i class="fas fa-lightbulb"></i><h3>Innovation</h3><p>Constantly evolving to offer unique, personalized travel experiences.</p></div>
+  </div>
+</section>
+
+<section class="testimonials">
+  <div class="testimonials-container">
+    <h2><i class="fas fa-quote-left"></i> What Our Travelers Say</h2>
+    <div class="testimonial-grid">
+      <div class="testimonial-card"><i class="fas fa-quote-right"></i><p>"Amazing experience! Tourism of India made our Kerala trip unforgettable. Great service and wonderful hospitality!"</p><h4>– Sarah Johnson</h4><div class="stars">★★★★★</div></div>
+      <div class="testimonial-card"><i class="fas fa-quote-right"></i><p>"Best travel agency! Our Rajasthan tour was perfectly planned. Every detail was taken care of. Highly recommended!"</p><h4>– Michael Chen</h4><div class="stars">★★★★★</div></div>
+      <div class="testimonial-card"><i class="fas fa-quote-right"></i><p>"Excellent service and amazing tour guides! The Manali trip was magical. Will definitely book again!"</p><h4>– Priya Patel</h4><div class="stars">★★★★★</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="newsletter">
+  <h3><i class="fas fa-envelope"></i> Subscribe to Our Newsletter</h3>
+  <p>Get exclusive travel deals, tips, and inspiration straight to your inbox!</p>
+  <form class="newsletter-form" id="newsletterForm">
+    <input type="email" placeholder="Enter your email address" required>
+    <button type="submit">Subscribe Now</button>
+  </form>
+  <div id="newsletterMsg" style="margin-top:1rem;"></div>
+</section>
+
+<footer>
+  <p>© 2025 Tourism of India | Discover, Explore &amp; Experience the Magic of India</p>
+</footer>
+
+<script>
+  document.getElementById('newsletterForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    document.getElementById('newsletterMsg').innerHTML = '<div style="background:#d4edda;padding:10px;border-radius:30px;color:#155724;display:inline-block;">✅ Thank you for subscribing! You\'ll receive amazing travel deals soon.</div>';
+    this.reset();
+    setTimeout(() => document.getElementById('newsletterMsg').innerHTML='', 4000);
+  });
+</script>
+<script type="module" src="global-auth.js"></script>
+</body>
+</html>

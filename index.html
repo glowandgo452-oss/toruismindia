@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Incredible India | Tourism of India</title>
+  <meta name="description" content="Explore the best tourism destinations in India including Taj Mahal, Kerala, Goa, Rajasthan and more. Book amazing travel packages.">
+  <meta name="keywords" content="India tourism, travel India, Goa, Kerala, Taj Mahal, Rajasthan tour">
+  <link rel="icon" href="https://cdn-icons-png.flaticon.com/512/684/684908.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <style>
+    *{margin:0;padding:0;box-sizing:border-box;}
+    body{font-family:'Poppins',sans-serif;background:#fef9f0;color:#2c3e2f;overflow-x:hidden;}
+    /* NAVBAR */
+    .navbar{background:#1a472a;padding:1rem 2rem;position:sticky;top:0;z-index:1000;box-shadow:0 4px 15px rgba(0,0,0,0.1);}
+    .nav-container{max-width:1200px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;}
+    .logo{font-size:1.5rem;font-weight:700;color:#ffd966;}
+    .logo i{margin-right:8px;color:#ffb347;}
+    .nav-links{display:flex;gap:1.5rem;list-style:none;align-items:center;}
+    .nav-links a{text-decoration:none;color:#ffebc2;font-weight:500;transition:0.3s;font-size:0.95rem;}
+    .nav-links a:hover,.nav-links a.active{color:#ffb347;}
+    .nav-user{color:#ffb347;font-size:0.85rem;font-weight:600;}
+    .hamburger{display:none;font-size:1.5rem;color:white;cursor:pointer;background:none;border:none;}
+    /* HERO */
+    .hero{min-height:90vh;background:linear-gradient(135deg,#1a472a,#0e2e1c);position:relative;overflow:hidden;}
+    .hero-grid{max-width:1200px;margin:0 auto;padding:3rem 2rem;display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:center;}
+    .hero-slider{position:relative;border-radius:20px;overflow:hidden;box-shadow:0 20px 40px rgba(0,0,0,0.3);}
+    .slider-container{position:relative;height:400px;}
+    .slide{position:absolute;top:0;left:0;width:100%;height:100%;opacity:0;transition:opacity 0.6s ease;}
+    .slide.active{opacity:1;}
+    .slide img{width:100%;height:100%;object-fit:cover;}
+    .slide-caption{position:absolute;bottom:0;left:0;right:0;background:linear-gradient(transparent,rgba(0,0,0,0.7));color:white;padding:1rem;text-align:center;font-weight:500;}
+    .slider-dots{position:absolute;bottom:15px;left:50%;transform:translateX(-50%);display:flex;gap:10px;z-index:10;}
+    .dot{width:10px;height:10px;border-radius:50%;background:rgba(255,255,255,0.5);cursor:pointer;transition:0.3s;border:none;}
+    .dot.active{background:#ffb347;width:25px;border-radius:10px;}
+    .hero-content h1{font-size:3rem;color:white;margin-bottom:1rem;line-height:1.2;}
+    .hero-content h1 span{color:#ffb347;}
+    .hero-content p{font-size:1.1rem;color:#ffebc2;margin-bottom:2rem;line-height:1.6;}
+    .btn-primary{display:inline-block;background:#ffb347;color:#1a472a;padding:12px 30px;border-radius:50px;text-decoration:none;font-weight:600;transition:0.3s;}
+    .btn-primary:hover{background:#e67e22;color:white;transform:translateX(5px);}
+    /* CATEGORIES */
+    .categories,.highlights{padding:4rem 2rem;}
+    .container{max-width:1200px;margin:0 auto;}
+    .section-title{text-align:center;font-size:2.5rem;margin-bottom:3rem;color:#1a472a;}
+    .section-title span{color:#ffb347;}
+    .categories-grid,.highlights-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:2rem;}
+    .category-card,.highlight-card{background:white;border-radius:20px;overflow:hidden;box-shadow:0 10px 25px rgba(0,0,0,0.08);transition:all 0.3s;cursor:pointer;text-align:center;}
+    .category-card:hover,.highlight-card:hover{transform:translateY(-10px);box-shadow:0 20px 35px rgba(0,0,0,0.15);}
+    .category-card img,.highlight-card img{width:100%;height:200px;object-fit:cover;}
+    .category-card h3,.highlight-card h3{padding:1rem;font-size:1.2rem;color:#1a472a;}
+    /* CTA */
+    .cta-section{background:linear-gradient(135deg,#ffb347,#ff8c00);padding:4rem 2rem;text-align:center;color:white;}
+    .cta-section h2{font-size:2rem;margin-bottom:1rem;}
+    .cta-section p{font-size:1.1rem;margin-bottom:2rem;}
+    .btn-cta{background:white;color:#ff8c00;padding:12px 35px;border-radius:50px;text-decoration:none;font-weight:600;transition:0.3s;display:inline-block;}
+    .btn-cta:hover{background:#1a472a;color:white;transform:scale(1.05);}
+    /* FOOTER */
+    .footer{background:#1a2a1f;color:#c9d1b7;padding:3rem 2rem 1rem;}
+    .footer-container{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:2rem;}
+    .footer-col h3,.footer-col h4{color:#ffd966;margin-bottom:1rem;}
+    .footer-col ul{list-style:none;}
+    .footer-col ul li{margin-bottom:0.5rem;}
+    .footer-col ul li a{color:#c9d1b7;text-decoration:none;}
+    .footer-col ul li a:hover{color:#ffb347;}
+    .footer-bottom{text-align:center;padding-top:2rem;margin-top:2rem;border-top:1px solid #3a4a3a;}
+    /* MODAL */
+    .modal-overlay{position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.85);backdrop-filter:blur(5px);z-index:2000;display:flex;align-items:center;justify-content:center;visibility:hidden;opacity:0;transition:all 0.3s;}
+    .modal-overlay.active{visibility:visible;opacity:1;}
+    .modal-container{background:white;max-width:600px;width:90%;border-radius:30px;max-height:90vh;overflow-y:auto;animation:fadeUp 0.3s ease;}
+    @keyframes fadeUp{from{opacity:0;transform:translateY(40px);}to{opacity:1;transform:translateY(0);}}
+    .modal-header{background:linear-gradient(135deg,#1a472a,#2b5e3b);color:white;padding:1.2rem 1.8rem;display:flex;justify-content:space-between;align-items:center;border-radius:30px 30px 0 0;}
+    .modal-header h2{font-size:1.4rem;}
+    .close-modal{background:none;border:none;font-size:2rem;color:white;cursor:pointer;}
+    .modal-body{padding:1.5rem;}
+    .modal-img{width:100%;height:200px;object-fit:cover;border-radius:15px;margin-bottom:1rem;}
+    .modal-price{font-size:1.8rem;font-weight:bold;color:#ff8c00;margin:1rem 0;}
+    .info-grid{background:#f8f4ea;padding:1rem;border-radius:15px;margin:1rem 0;display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:0.8rem;}
+    .info-item{display:flex;align-items:center;gap:8px;font-size:0.9rem;}
+    .info-item i{color:#ffb347;}
+    .booking-form input,.booking-form select{width:100%;padding:10px;margin:8px 0;border-radius:10px;border:1px solid #ddd;font-family:inherit;}
+    .book-btn{background:#ffb347;border:none;padding:12px;font-weight:bold;border-radius:30px;width:100%;cursor:pointer;margin-top:15px;font-size:1rem;transition:0.3s;}
+    .book-btn:hover{background:#e67e22;color:white;}
+    .success-msg{background:#d4edda;color:#155724;padding:10px;border-radius:10px;text-align:center;margin-top:10px;}
+    .error-msg{background:#f8d7da;color:#721c24;padding:10px;border-radius:10px;text-align:center;margin-top:10px;}
+    @media(max-width:768px){
+      .hero-grid{grid-template-columns:1fr;}
+      .nav-links{display:none;position:absolute;top:70px;left:0;right:0;background:#1a472a;flex-direction:column;padding:1rem;text-align:center;gap:1rem;}
+      .nav-links.show{display:flex;}
+      .hamburger{display:block;}
+      .section-title{font-size:1.8rem;}
+      .hero-content h1{font-size:2rem;}
+    }
+  </style>
+</head>
+<body>
+
+<nav class="navbar">
+  <div class="nav-container">
+    <div class="logo"><i class="fas fa-map-marked-alt"></i> Tourism of India</div>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="index.html" class="active">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="places.html">Places</a></li>
+      <li><a href="package.html">Packages</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><a href="mybookings.html">My Bookings</a></li>
+      <li><span class="nav-user" id="userNavName"></span></li>
+      <li><a href="register.html" id="authNavLink">Login / Register</a></li>
+    </ul>
+    <button class="hamburger" id="hamburger"><i class="fas fa-bars"></i></button>
+  </div>
+</nav>
+
+<section class="hero">
+  <div class="hero-grid">
+    <div class="hero-slider">
+      <div class="slider-container" id="heroSlider">
+        <div class="slide active"><img src="images/tajmahal.jpg" alt="Taj Mahal"><div class="slide-caption">Taj Mahal, Agra - Symbol of Love</div></div>
+        <div class="slide"><img src="images/kerala-backwaters.jpg" alt="Kerala Backwaters"><div class="slide-caption">Kerala - God's Own Country</div></div>
+        <div class="slide"><img src="images/beachGoa.jpg" alt="Goa Beach"><div class="slide-caption">Goa - Beach Paradise</div></div>
+        <div class="slide"><img src="images/himalayas.jpg" alt="Himalayas"><div class="slide-caption">Himalayas - The Abode of Snow</div></div>
+        <div class="slide"><img src="images/rajasthanfort.jpg" alt="Rajasthan"><div class="slide-caption">Rajasthan - Royal Heritage</div></div>
+        <div class="slide"><img src="images/Spiritual.jpg" alt="Varanasi"><div class="slide-caption">Varanasi - Spiritual Capital</div></div>
+      </div>
+      <div class="slider-dots" id="sliderDots"></div>
+    </div>
+    <div class="hero-content">
+      <h1>Plan Your Dream <span>India Holiday</span></h1>
+      <p>Discover the beauty of India with customized travel packages. From beaches to mountains, experience unforgettable journeys with us.</p>
+      <a href="package.html" class="btn-primary">Explore Packages <i class="fas fa-arrow-right"></i></a>
+    </div>
+  </div>
+</section>
+
+<section class="categories">
+  <div class="container">
+    <h2 class="section-title">Explore by <span>Category</span></h2>
+    <div class="categories-grid">
+      <div class="category-card" data-place="Wildlife Sanctuaries"><img src="images/wildlife.jpg" alt="Wildlife"><h3>🐯 Wildlife</h3></div>
+      <div class="category-card" data-place="Heritage Sites"><img src="images/heritage1.jpg" alt="Heritage"><h3>🏛️ Heritage</h3></div>
+      <div class="category-card" data-place="Adventure Sports"><img src="images/adventure.jpg" alt="Adventure"><h3>🧗 Adventure</h3></div>
+      <div class="category-card" data-place="Beach Destinations"><img src="images/beachGoa.jpg" alt="Beach"><h3>🏖️ Beach</h3></div>
+      <div class="category-card" data-place="Hill Stations"><img src="images/hillsstation.jpg" alt="Hill Stations"><h3>🏔️ Hill Stations</h3></div>
+    </div>
+  </div>
+</section>
+
+<section class="highlights">
+  <div class="container">
+    <h2 class="section-title">Popular <span>Destinations</span></h2>
+    <div class="highlights-grid">
+      <div class="highlight-card" data-place="Taj Mahal"><img src="images/tajmahal.jpg" alt="Taj Mahal"><h3>Taj Mahal</h3></div>
+      <div class="highlight-card" data-place="Kerala Backwaters"><img src="images/kerala-backwaters.jpg" alt="Kerala"><h3>Kerala</h3></div>
+      <div class="highlight-card" data-place="Goa Beaches"><img src="images/beachGoa.jpg" alt="Goa"><h3>Goa</h3></div>
+      <div class="highlight-card" data-place="Himalayas"><img src="images/himalayas.jpg" alt="Himalayas"><h3>Himalayas</h3></div>
+      <div class="highlight-card" data-place="Rajasthan Desert"><img src="images/rajasthanfort.jpg" alt="Rajasthan"><h3>Rajasthan</h3></div>
+      <div class="highlight-card" data-place="Varanasi Ghats"><img src="images/Spiritual.jpg" alt="Varanasi"><h3>Varanasi</h3></div>
+    </div>
+  </div>
+</section>
+
+<section class="cta-section">
+  <h2>Ready to Explore Incredible India?</h2>
+  <p>Book your dream vacation today and get exclusive discounts!</p>
+  <a href="package.html" class="btn-cta">Book Now <i class="fas fa-calendar-check"></i></a>
+</section>
+
+<footer class="footer">
+  <div class="footer-container">
+    <div class="footer-col">
+      <h3><i class="fas fa-map-marked-alt"></i> Tourism of India</h3>
+      <p>Your gateway to incredible travel experiences across India.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Quick Links</h4>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="package.html">Packages</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Contact</h4>
+      <p><i class="fas fa-phone"></i> +91 70202 19751</p>
+      <p><i class="fas fa-envelope"></i> tourismofindiaofficial@gmail.com</p>
+    </div>
+  </div>
+  <div class="footer-bottom"><p>© 2025 Tourism of India. All rights reserved.</p></div>
+</footer>
+
+<!-- BOOKING MODAL -->
+<div id="placeModal" class="modal-overlay">
+  <div class="modal-container">
+    <div class="modal-header">
+      <h2 id="modalPlaceName">Place Name</h2>
+      <button class="close-modal" id="closeModalBtn">&times;</button>
+    </div>
+    <div class="modal-body">
+      <img id="modalImg" class="modal-img" src="" alt="place">
+      <p id="modalDesc" class="modal-desc" style="color:#4a5b4a;line-height:1.6;"></p>
+      <div id="infoHighlights" class="info-grid"></div>
+      <div class="modal-price" id="modalPrice"></div>
+      <div class="booking-form">
+        <h3><i class="fas fa-chair"></i> Book Your Seat Now</h3>
+        <input type="text" id="visitorName" placeholder="Full Name" required>
+        <input type="email" id="visitorEmail" placeholder="Email ID" required>
+        <select id="seatCount">
+          <option value="1">1 Seat</option><option value="2">2 Seats</option>
+          <option value="3">3 Seats</option><option value="4">4 Seats</option>
+          <option value="5">5 Seats</option><option value="6">6 Seats</option>
+        </select>
+        <input type="date" id="travelDate" required>
+        <button class="book-btn" id="confirmBooking">✅ Confirm Booking</button>
+        <div id="bookingMsg"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  const placesData = {
+    "Taj Mahal":{img:"images/tajmahal.jpg",desc:"The Taj Mahal, an ivory-white marble mausoleum, was commissioned by Shah Jahan in 1632. One of the Seven Wonders of the World and a UNESCO World Heritage Site.",bestTime:"October to March",entryFee:"₹50 (Indians) / ₹1100 (Foreigners)",price:1299,highlights:"Mughal architecture, Yamuna river view, Mehtab Bagh, Sunrise view"},
+    "Kerala Backwaters":{img:"images/kerala-backwaters.jpg",desc:"The backwaters of Kerala are a network of brackish lagoons and lakes. Experience tranquility aboard a traditional houseboat.",bestTime:"September to March",entryFee:"Houseboat packages start at ₹4000",price:1899,highlights:"Houseboat cruise, fresh seafood, ayurveda, paddy fields"},
+    "Goa Beaches":{img:"images/beachGoa.jpg",desc:"Goa is famous for stunning beaches like Baga, Calangute, and Palolem. Water sports, Portuguese architecture and perfect blend of relaxation and adventure.",bestTime:"November to February",entryFee:"Free entry to public beaches",price:1499,highlights:"Water sports, beach shacks, night markets, Portuguese churches"},
+    "Himalayas":{img:"images/himalayas.jpg",desc:"The Himalayas are home to some of the highest peaks in the world. Perfect for trekking, spiritual retreats, and breathtaking views.",bestTime:"April to June, September to November",entryFee:"Varies by location",price:2499,highlights:"Trekking, mountain views, monasteries, adventure activities"},
+    "Rajasthan Desert":{img:"images/rajasthanfort.jpg",desc:"Rajasthan offers royal palaces, desert safaris, and rich cultural heritage. Experience the vibrant colors of India.",bestTime:"October to March",entryFee:"Fort entry varies",price:1999,highlights:"Desert safari, camel ride, royal palaces, folk dance"},
+    "Varanasi Ghats":{img:"images/Spiritual.jpg",desc:"Varanasi, on the banks of River Ganga, is one of the oldest living cities. The Ganga Aarti is a mesmerizing spiritual experience.",bestTime:"October to March",entryFee:"Free, boat ride ~₹300",price:999,highlights:"Ganga Aarti, boat ride, narrow alleyways, temples"},
+    "Wildlife Sanctuaries":{img:"images/wildlife.jpg",desc:"India's wildlife sanctuaries are home to tigers, elephants, rhinos, and diverse flora and fauna.",bestTime:"October to March",entryFee:"₹100-₹500",price:1499,highlights:"Jungle safari, tiger spotting, bird watching, nature trails"},
+    "Heritage Sites":{img:"images/heritage1.jpg",desc:"India's heritage sites showcase ancient architecture, historical monuments, and rich cultural history.",bestTime:"October to March",entryFee:"Varies by monument",price:1299,highlights:"Historical monuments, architecture, photography, cultural tours"},
+    "Adventure Sports":{img:"images/adventure.jpg",desc:"Experience thrilling adventure activities like river rafting, paragliding, bungee jumping, and trekking.",bestTime:"September to June",entryFee:"Activity-based pricing",price:1999,highlights:"River rafting, paragliding, trekking, camping, rock climbing"},
+    "Beach Destinations":{img:"images/beachGoa.jpg",desc:"India's beaches offer sun, sand, water sports, and relaxing coastal experiences.",bestTime:"November to February",entryFee:"Free",price:1299,highlights:"Swimming, water sports, sunset views, beach shacks"},
+    "Hill Stations":{img:"images/hillsstation.jpg",desc:"Escape to India's beautiful hill stations with cool climate, scenic views, and peaceful surroundings.",bestTime:"March to June",entryFee:"Free",price:1099,highlights:"Scenic views, nature walks, photography, local culture"}
+  };
+
+  let currentPlace = null;
+  const modal = document.getElementById('placeModal');
+
+  function openPlaceModal(placeName) {
+    const info = placesData[placeName] || {img:"images/tajmahal.jpg",desc:placeName+" is a beautiful destination in India.",bestTime:"October to March",entryFee:"Varies",price:999,highlights:"Sightseeing, local culture, scenic beauty"};
+    currentPlace = { name: placeName, ...info };
+    document.getElementById('modalPlaceName').innerText = placeName;
+    document.getElementById('modalImg').src = info.img;
+    document.getElementById('modalDesc').innerText = info.desc;
+    document.getElementById('modalPrice').innerHTML = `💰 ₹${info.price.toLocaleString()} per person`;
+    document.getElementById('infoHighlights').innerHTML = `
+      <div class="info-item"><i class="fas fa-calendar-alt"></i> Best Time: ${info.bestTime}</div>
+      <div class="info-item"><i class="fas fa-ticket-alt"></i> Entry: ${info.entryFee}</div>
+      <div class="info-item"><i class="fas fa-star"></i> Highlights: ${info.highlights}</div>`;
+    document.getElementById('visitorName').value = '';
+    document.getElementById('visitorEmail').value = '';
+    document.getElementById('travelDate').value = '';
+    document.getElementById('bookingMsg').innerHTML = '';
+    document.getElementById('travelDate').min = new Date().toISOString().split('T')[0];
+    // Pre-fill from logged in user
+    const user = JSON.parse(localStorage.getItem('current_user') || 'null');
+    if (user) {
+      document.getElementById('visitorName').value = user.name || '';
+      document.getElementById('visitorEmail').value = user.email || '';
+    }
+    modal.classList.add('active');
+  }
+
+  function closeModal() { modal.classList.remove('active'); }
+
+  document.getElementById('confirmBooking').addEventListener('click', () => {
+    const name = document.getElementById('visitorName').value.trim();
+    const email = document.getElementById('visitorEmail').value.trim();
+    const seats = parseInt(document.getElementById('seatCount').value);
+    const date = document.getElementById('travelDate').value;
+    if (!name || !email || !date) { document.getElementById('bookingMsg').innerHTML = '<div class="error-msg">❌ Please fill all fields!</div>'; return; }
+    if (!email.includes('@')) { document.getElementById('bookingMsg').innerHTML = '<div class="error-msg">❌ Enter a valid email!</div>'; return; }
+    const total = currentPlace.price * seats;
+    const user = JSON.parse(localStorage.getItem('current_user') || 'null');
+    const booking = {id:Date.now(),type:'place',placeName:currentPlace.name,userName:name,userEmail:email,seats,travelDate:date,totalAmount:total,userId:user?user.uid:'guest',bookingDate:new Date().toISOString()};
+    let all = JSON.parse(localStorage.getItem('tourism_all_bookings') || '[]');
+    all.push(booking);
+    localStorage.setItem('tourism_all_bookings', JSON.stringify(all));
+    document.getElementById('bookingMsg').innerHTML = `<div class="success-msg">✅ <strong>Booking Confirmed!</strong><br>📍 ${currentPlace.name} | 🎫 ${seats} seat(s) | 💰 Total: ₹${total.toLocaleString()}<br>🆔 Booking ID: #${booking.id}<br>🙏 Thank you ${name}! Happy Journey!</div>`;
+    document.getElementById('visitorName').value='';document.getElementById('visitorEmail').value='';document.getElementById('travelDate').value='';
+    setTimeout(closeModal, 3000);
+  });
+
+  document.querySelectorAll('.highlight-card,.category-card').forEach(card => {
+    card.addEventListener('click', () => openPlaceModal(card.getAttribute('data-place')));
+  });
+  document.getElementById('closeModalBtn').addEventListener('click', closeModal);
+  modal.addEventListener('click', e => { if(e.target===modal) closeModal(); });
+  document.addEventListener('keydown', e => { if(e.key==='Escape') closeModal(); });
+
+  // SLIDER
+  let currentSlide = 0;
+  const slides = document.querySelectorAll('.slide');
+  const dotsContainer = document.getElementById('sliderDots');
+  slides.forEach((_,i) => {
+    const dot = document.createElement('button');
+    dot.className = 'dot' + (i===0?' active':'');
+    dot.addEventListener('click', () => goToSlide(i));
+    dotsContainer.appendChild(dot);
+  });
+  function goToSlide(i) {
+    slides.forEach(s=>s.classList.remove('active'));
+    document.querySelectorAll('.dot').forEach(d=>d.classList.remove('active'));
+    slides[i].classList.add('active');
+    document.querySelectorAll('.dot')[i].classList.add('active');
+    currentSlide = i;
+  }
+  setInterval(() => goToSlide((currentSlide+1)%slides.length), 4000);
+
+  // HAMBURGER
+  document.getElementById('hamburger').addEventListener('click', () => document.getElementById('navLinks').classList.toggle('show'));
+</script>
+<script type="module" src="global-auth.js"></script>
+</body>
+</html>
